@@ -83,7 +83,8 @@ class Ui_secondWindow(object):
 
     def retranslateUi(self, secondWindow):
         _translate = QtCore.QCoreApplication.translate
-        secondWindow.setWindowTitle(_translate("secondWindow", "MainWindow"))
+        secondWindow.setWindowTitle(_translate("secondWindow", "PLAY"))
+        secondWindow.setWindowIcon(QtGui.QIcon('img\logo.png'))
         self.label.setText(_translate("secondWindow", "Rock"))
         self.label_2.setText(_translate("secondWindow", "Paper"))
         self.label_3.setText(_translate("secondWindow", "Scissors"))
