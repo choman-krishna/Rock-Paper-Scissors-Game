@@ -14,7 +14,14 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(800, 710)
+        MainWindow.resize(803, 703)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(MainWindow.sizePolicy().hasHeightForWidth())
+        MainWindow.setSizePolicy(sizePolicy)
+        MainWindow.setMinimumSize(QtCore.QSize(803, 0))
+        MainWindow.setMaximumSize(QtCore.QSize(803, 703))
         font = QtGui.QFont()
         font.setPointSize(7)
         MainWindow.setFont(font)
@@ -33,6 +40,12 @@ class Ui_MainWindow(object):
         self.label.setObjectName("label")
         self.label_2 = QtWidgets.QLabel(self.centralwidget)
         self.label_2.setGeometry(QtCore.QRect(-10, 70, 811, 501))
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.label_2.sizePolicy().hasHeightForWidth())
+        self.label_2.setSizePolicy(sizePolicy)
+        self.label_2.setCursor(QtGui.QCursor(QtCore.Qt.BusyCursor))
         self.label_2.setText("")
         self.label_2.setPixmap(QtGui.QPixmap(".\\img/w2.png"))
         self.label_2.setScaledContents(True)
@@ -46,7 +59,7 @@ class Ui_MainWindow(object):
         self.play.setObjectName("play")
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
-        self.menubar.setGeometry(QtCore.QRect(0, 0, 800, 21))
+        self.menubar.setGeometry(QtCore.QRect(0, 0, 803, 21))
         self.menubar.setObjectName("menubar")
         MainWindow.setMenuBar(self.menubar)
         self.statusbar = QtWidgets.QStatusBar(MainWindow)
@@ -59,7 +72,7 @@ class Ui_MainWindow(object):
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
-        self.label.setText(_translate("MainWindow", "Rock Paper Sissors "))
+        self.label.setText(_translate("MainWindow", "Rock Paper Scissors "))
         self.play.setText(_translate("MainWindow", "Play"))
 
 
