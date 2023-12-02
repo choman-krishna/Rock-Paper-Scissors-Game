@@ -6,9 +6,15 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>802</width>
-    <height>661</height>
+    <width>800</width>
+    <height>710</height>
    </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
   </property>
   <property name="font">
    <font>
@@ -37,7 +43,7 @@
      </font>
     </property>
     <property name="text">
-     <string>Rock Paper Sissors </string>
+     <string>Rock Paper Scissors </string>
     </property>
     <property name="textFormat">
      <enum>Qt::PlainText</enum>
@@ -65,13 +71,32 @@
      <bool>true</bool>
     </property>
    </widget>
+   <widget class="QPushButton" name="play">
+    <property name="geometry">
+     <rect>
+      <x>240</x>
+      <y>590</y>
+      <width>311</width>
+      <height>71</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Lucida Calligraphy</family>
+      <pointsize>26</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>Play</string>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>802</width>
+     <width>800</width>
      <height>21</height>
     </rect>
    </property>
