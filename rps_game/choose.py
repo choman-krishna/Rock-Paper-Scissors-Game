@@ -1,7 +1,23 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
+from random import randint
 
 
 class Ui_secondWindow(object):
+
+    def game_logic(self, user_choice):
+        self.user_choice = user_choice
+        self.computer_choice = randint(0,2)
+        if self.user_choice == self.computer_choice:
+            print("Draw")
+            pass
+        elif self.user_choice + self.computer_choice == 2:
+            print("Computer wins !!" if self.computer_choice == 0 else "u win")
+            pass
+        else:
+            print("u Loose" if self.user_choice < self.computer_choice else "U Win")
+            pass
+
+
     def setupUi(self, secondWindow):
         secondWindow.setObjectName("secondWindow")
         secondWindow.resize(620, 481)
@@ -14,7 +30,7 @@ class Ui_secondWindow(object):
         secondWindow.setMaximumSize(QtCore.QSize(620, 481))
         self.centralwidget = QtWidgets.QWidget(secondWindow)
         self.centralwidget.setObjectName("centralwidget")
-        self.rock = QtWidgets.QPushButton(self.centralwidget)
+        self.rock = QtWidgets.QPushButton(self.centralwidget, clicked = lambda: self.game_logic(0))
         self.rock.setGeometry(QtCore.QRect(20, 20, 271, 161))
         self.rock.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.rock.setText("")
@@ -24,7 +40,7 @@ class Ui_secondWindow(object):
         self.rock.setIconSize(QtCore.QSize(250, 500))
         self.rock.setCheckable(True)
         self.rock.setObjectName("rock")
-        self.scissors = QtWidgets.QPushButton(self.centralwidget)
+        self.scissors = QtWidgets.QPushButton(self.centralwidget, clicked = lambda: self.game_logic(2))
         self.scissors.setGeometry(QtCore.QRect(180, 220, 281, 171))
         self.scissors.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.scissors.setText("")
@@ -33,7 +49,7 @@ class Ui_secondWindow(object):
         self.scissors.setIcon(icon1)
         self.scissors.setIconSize(QtCore.QSize(300, 500))
         self.scissors.setObjectName("scissors")
-        self.paper = QtWidgets.QPushButton(self.centralwidget)
+        self.paper = QtWidgets.QPushButton(self.centralwidget, clicked = lambda: self.game_logic(1))
         self.paper.setGeometry(QtCore.QRect(330, 20, 271, 161))
         self.paper.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.paper.setText("")
