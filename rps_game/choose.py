@@ -36,7 +36,8 @@ class Ui_secondWindow(object):
 
         # Message Box
         box_msg = QtWidgets.QMessageBox()
-        box_msg.setWindowTitle("Play Again ?")
+        box_msg.setWindowTitle("Play Again")
+        box_msg.setWindowIcon(QtGui.QIcon(r'rps_game\img\logo.png'))
 
         # Font 
         font = QtGui.QFont()
@@ -158,7 +159,7 @@ class Ui_secondWindow(object):
     def retranslateUi(self, secondWindow):
         _translate = QtCore.QCoreApplication.translate
         secondWindow.setWindowTitle(_translate("secondWindow", "PLAY"))
-        secondWindow.setWindowIcon(QtGui.QIcon('img\logo.png'))
+        secondWindow.setWindowIcon(QtGui.QIcon(r'rps_game\img\logo.png'))
         self.label.setText(_translate("secondWindow", "Rock"))
         self.label_2.setText(_translate("secondWindow", "Paper"))
         self.label_3.setText(_translate("secondWindow", "Scissors"))
