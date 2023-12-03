@@ -1,5 +1,6 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 from random import randint
+from score import Ui_Dialog
 
 
 class Ui_secondWindow(object):
@@ -63,6 +64,14 @@ class Ui_secondWindow(object):
         box_msg.addButton("Play Again",QtWidgets.QMessageBox.NoRole)
         exit_button.clicked.connect(exit)
         box_msg.exec_()
+
+    # Score Board
+    def view_score(self, computer_score, user_score):
+        self.score_board = QtWidgets.QDialog()
+        self.score_ui = Ui_Dialog()
+        self.score_ui.setupUi(self.score_board)        
+
+        self.score_board.show()
 
     def setupUi(self, secondWindow):
 
