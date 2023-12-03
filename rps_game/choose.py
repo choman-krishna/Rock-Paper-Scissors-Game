@@ -5,7 +5,10 @@ from score import Ui_Dialog
 
 class Ui_secondWindow(object):
 
-    
+    # Variables 
+    comp_score = 0
+    usr_score = 0
+
     def game_logic(self, user_choice):
 
         self.user_choice = user_choice
@@ -28,7 +31,12 @@ class Ui_secondWindow(object):
             print("You Loose" if self.user_choice < self.computer_choice else "You Win")
             self.result = self.computer_choice if self.user_choice < self.computer_choice else self.user_choice
             self.win_stat = 2 if self.user_choice < self.computer_choice else 1
-            
+
+        if self.win_stat == 1:
+            self.usr_score += 1 
+        elif self.win_stat == 2:
+            self.comp_score += 1 
+
         self.close_win(self.result, self.win_stat)
 
     # Close Win
@@ -61,16 +69,18 @@ class Ui_secondWindow(object):
 
         # Push Button
         exit_button = box_msg.addButton("Exit",QtWidgets.QMessageBox.RejectRole)
+        view_score = box_msg.addButton("View Score", QtWidgets.QMessageBox.NoRole)      
         box_msg.addButton("Play Again",QtWidgets.QMessageBox.NoRole)
+                
+        view_score.clicked.connect(self.view_score)  
         exit_button.clicked.connect(exit)
         box_msg.exec_()
 
     # Score Board
-    def view_score(self, computer_score, user_score):
+    def view_score(self):
         self.score_board = QtWidgets.QDialog()
         self.score_ui = Ui_Dialog()
-        self.score_ui.setupUi(self.score_board)        
-
+        self.score_ui.setupUi(self.score_board, self.comp_score, self.usr_score)
         self.score_board.show()
 
     def setupUi(self, secondWindow):

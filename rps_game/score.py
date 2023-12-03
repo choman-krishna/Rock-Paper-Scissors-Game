@@ -2,7 +2,8 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 
 
 class Ui_Dialog(object):
-    def setupUi(self, Dialog):
+
+    def setupUi(self, Dialog, computer, user):
         Dialog.setObjectName("Dialog")
         Dialog.resize(272, 109)
         Dialog.setMinimumSize(QtCore.QSize(272, 109))
@@ -29,17 +30,22 @@ class Ui_Dialog(object):
         self.compute_score = QtWidgets.QLCDNumber(Dialog)
         self.compute_score.setGeometry(QtCore.QRect(20, 40, 91, 61))
         self.compute_score.setObjectName("compute_score")
-        
+        # Display Computer Score
+        self.compute_score.display(computer)
+
         self.user_score = QtWidgets.QLCDNumber(Dialog)
         self.user_score.setGeometry(QtCore.QRect(160, 40, 91, 61))
         self.user_score.setObjectName("user_score")
+        # Display User Score
+        self.user_score.display(user)
 
         self.retranslateUi(Dialog)
         QtCore.QMetaObject.connectSlotsByName(Dialog)
 
     def retranslateUi(self, Dialog):
         _translate = QtCore.QCoreApplication.translate
-        Dialog.setWindowTitle(_translate("Dialog", "Dialog"))
+        Dialog.setWindowTitle(_translate("Dialog", "Score Board"))
+        Dialog.setWindowIcon(QtGui.QIcon(r'rps_game\img\logo.png'))
         self.label.setText(_translate("Dialog", "Computer"))
         self.label_2.setText(_translate("Dialog", "You"))
 
