@@ -38,17 +38,24 @@ class Ui_secondWindow(object):
         box_msg = QtWidgets.QMessageBox()
         box_msg.setWindowTitle("Play Again ?")
 
+        # Font 
+        font = QtGui.QFont()
+        font.setBold(True)
+        font.setPointSize(20)
+        font.setFamily("Georgia")
+        box_msg.setFont(font)
+
+        box_msg.setStyleSheet("QLabel { font-size: 15pt; min-height: 100px;}")
+
         # Image display
         self.index = index
         self.img_list = [r'rps_game\img\draw.jpg', r'rps_game\img\pvr.jpg', r'rps_game\img\svp.jpg', r'rps_game\img\svr.jpg']
-        box_msg.setIconPixmap(QtGui.QPixmap(self.img_list[self.index]).scaled(600, 300))
+        box_msg.setIconPixmap(QtGui.QPixmap(self.img_list[self.index]).scaled(600, 300))        
 
         # Display Text
         self.win_stat = win_stat
-        self.result_list = ['Its A Draw', 'You Win', 'You Loose']
+        self.result_list = ['Its Draw', 'You Win', 'You Loose']
         box_msg.setText(self.result_list[self.win_stat])
-
-
 
         # Push Button
         exit_button = box_msg.addButton("Exit",QtWidgets.QMessageBox.RejectRole)
