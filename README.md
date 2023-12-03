@@ -6,6 +6,7 @@ Welcome to the Rock, Paper, Scissors game! This simple yet classic game is imple
 ## Table of Contents
 - [Installation](#installation)
 - [Features](#features)
+- [Dependencies](#dependencies)
 
 ## Installation
 
