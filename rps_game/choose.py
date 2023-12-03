@@ -12,26 +12,47 @@ class Ui_secondWindow(object):
         # Generate Random
         self.computer_choice = randint(0,2)
 
+        
         # Game-Logic
         if self.user_choice == self.computer_choice:
             print("Draw")
+            self.win_stat = self.result = 0
+            
             
         elif self.user_choice + self.computer_choice == 2:
-            print("Computer wins !!" if self.computer_choice == 0 else "u win")
-            
+            print("You Loose" if self.computer_choice == 0 else "You Win")  
+            self.result = 3
+            self.win_stat = 2 if self.computer_choice == 0 else 1
         else:
-            print("u Loose" if self.user_choice < self.computer_choice else "U Win")
+            print("You Loose" if self.user_choice < self.computer_choice else "You Win")
+            self.result = self.computer_choice if self.user_choice < self.computer_choice else self.user_choice
+            self.win_stat = 2 if self.user_choice < self.computer_choice else 1
             
-        self.close_win()
+        self.close_win(self.result, self.win_stat)
 
     # Close Win
-    def close_win(self):
-        
+    def close_win(self, index, win_stat):
+
+
+        # Message Box
         box_msg = QtWidgets.QMessageBox()
         box_msg.setWindowTitle("Play Again ?")
 
+        # Image display
+        self.index = index
+        self.img_list = [r'rps_game\img\draw.jpg', r'rps_game\img\pvr.jpg', r'rps_game\img\svp.jpg', r'rps_game\img\svr.jpg']
+        box_msg.setIconPixmap(QtGui.QPixmap(self.img_list[self.index]).scaled(600, 300))
+
+        # Display Text
+        self.win_stat = win_stat
+        self.result_list = ['Its A Draw', 'You Win', 'You Loose']
+        box_msg.setText(self.result_list[self.win_stat])
+
+
+
+        # Push Button
         exit_button = box_msg.addButton("Exit",QtWidgets.QMessageBox.RejectRole)
-        playAgain_button = box_msg.addButton("Play Again",QtWidgets.QMessageBox.NoRole)
+        box_msg.addButton("Play Again",QtWidgets.QMessageBox.NoRole)
         exit_button.clicked.connect(exit)
         box_msg.exec_()
 
