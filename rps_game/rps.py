@@ -37,6 +37,7 @@ class Ui_MainWindow(object):
         self.label.setTextFormat(QtCore.Qt.PlainText)
         self.label.setAlignment(QtCore.Qt.AlignCenter)
         self.label.setObjectName("label")
+
         self.label_2 = QtWidgets.QLabel(self.centralwidget)
         self.label_2.setGeometry(QtCore.QRect(-10, 70, 811, 501))
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
@@ -46,9 +47,10 @@ class Ui_MainWindow(object):
         self.label_2.setSizePolicy(sizePolicy)
         self.label_2.setCursor(QtGui.QCursor(QtCore.Qt.ArrowCursor))
         self.label_2.setText("")
-        self.label_2.setPixmap(QtGui.QPixmap(".\\img/w2.png"))
+        self.label_2.setPixmap(QtGui.QPixmap(r"rps_game\img\w2.png"))
         self.label_2.setScaledContents(True)
         self.label_2.setObjectName("label_2")
+        
         self.play = QtWidgets.QPushButton(self.centralwidget, clicked = lambda: self.open_win())
         self.play.setGeometry(QtCore.QRect(240, 590, 311, 71))
         font = QtGui.QFont()
@@ -71,7 +73,7 @@ class Ui_MainWindow(object):
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "Rock Paper Scissors v1.0"))
-        MainWindow.setWindowIcon(QtGui.QIcon('img\logo.png'))
+        MainWindow.setWindowIcon(QtGui.QIcon(r'rps_game\img\logo.png'))
         self.label.setText(_translate("MainWindow", "Rock Paper Scissors "))
         self.play.setText(_translate("MainWindow", "Play"))
 
