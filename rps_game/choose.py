@@ -4,21 +4,39 @@ from random import randint
 
 class Ui_secondWindow(object):
 
+    
     def game_logic(self, user_choice):
+
         self.user_choice = user_choice
+        
+        # Generate Random
         self.computer_choice = randint(0,2)
+
+        # Game-Logic
         if self.user_choice == self.computer_choice:
             print("Draw")
-            pass
+            
         elif self.user_choice + self.computer_choice == 2:
             print("Computer wins !!" if self.computer_choice == 0 else "u win")
-            pass
+            
         else:
             print("u Loose" if self.user_choice < self.computer_choice else "U Win")
-            pass
+            
+        self.close_win()
 
+    # Close Win
+    def close_win(self):
+        
+        box_msg = QtWidgets.QMessageBox()
+        box_msg.setWindowTitle("Play Again ?")
+
+        exit_button = box_msg.addButton("Exit",QtWidgets.QMessageBox.RejectRole)
+        playAgain_button = box_msg.addButton("Play Again",QtWidgets.QMessageBox.NoRole)
+        exit_button.clicked.connect(exit)
+        box_msg.exec_()
 
     def setupUi(self, secondWindow):
+
         secondWindow.setObjectName("secondWindow")
         secondWindow.resize(620, 481)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
@@ -30,34 +48,41 @@ class Ui_secondWindow(object):
         secondWindow.setMaximumSize(QtCore.QSize(620, 481))
         self.centralwidget = QtWidgets.QWidget(secondWindow)
         self.centralwidget.setObjectName("centralwidget")
+
+        # Rock
         self.rock = QtWidgets.QPushButton(self.centralwidget, clicked = lambda: self.game_logic(0))
         self.rock.setGeometry(QtCore.QRect(20, 20, 271, 161))
         self.rock.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.rock.setText("")
         icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap(".\\img/rock.jpg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon.addPixmap(QtGui.QPixmap(r"rps_game\img\rock_j.jpg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.rock.setIcon(icon)
         self.rock.setIconSize(QtCore.QSize(250, 500))
         self.rock.setCheckable(True)
         self.rock.setObjectName("rock")
+
+        # Scissors
         self.scissors = QtWidgets.QPushButton(self.centralwidget, clicked = lambda: self.game_logic(2))
         self.scissors.setGeometry(QtCore.QRect(180, 220, 281, 171))
         self.scissors.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.scissors.setText("")
         icon1 = QtGui.QIcon()
-        icon1.addPixmap(QtGui.QPixmap(".\\img/scissors.jpg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon1.addPixmap(QtGui.QPixmap(r"rps_game\img\scissors.jpg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.scissors.setIcon(icon1)
         self.scissors.setIconSize(QtCore.QSize(300, 500))
         self.scissors.setObjectName("scissors")
+
+        # Paper
         self.paper = QtWidgets.QPushButton(self.centralwidget, clicked = lambda: self.game_logic(1))
         self.paper.setGeometry(QtCore.QRect(330, 20, 271, 161))
         self.paper.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.paper.setText("")
         icon2 = QtGui.QIcon()
-        icon2.addPixmap(QtGui.QPixmap(".\\img/paper.jpg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon2.addPixmap(QtGui.QPixmap(r"rps_game\img\paper.jpg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.paper.setIcon(icon2)
         self.paper.setIconSize(QtCore.QSize(350, 200))
         self.paper.setObjectName("paper")
+
         self.label = QtWidgets.QLabel(self.centralwidget)
         self.label.setGeometry(QtCore.QRect(130, 190, 55, 16))
         font = QtGui.QFont()
@@ -72,6 +97,7 @@ class Ui_secondWindow(object):
         font.setPointSize(12)
         self.label_2.setFont(font)
         self.label_2.setObjectName("label_2")
+
         self.label_3 = QtWidgets.QLabel(self.centralwidget)
         self.label_3.setGeometry(QtCore.QRect(280, 400, 91, 21))
         font = QtGui.QFont()
@@ -80,12 +106,16 @@ class Ui_secondWindow(object):
         self.label_3.setFont(font)
         self.label_3.setObjectName("label_3")
         secondWindow.setCentralWidget(self.centralwidget)
+        
+        # Menu Bar
         self.menubar = QtWidgets.QMenuBar(secondWindow)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 620, 26))
         self.menubar.setObjectName("menubar")
         self.menuExit = QtWidgets.QMenu(self.menubar)
         self.menuExit.setObjectName("menuExit")
         secondWindow.setMenuBar(self.menubar)
+        
+        # Status Bar
         self.statusbar = QtWidgets.QStatusBar(secondWindow)
         self.statusbar.setObjectName("statusbar")
         secondWindow.setStatusBar(self.statusbar)
