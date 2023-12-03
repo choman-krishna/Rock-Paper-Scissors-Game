@@ -103,9 +103,9 @@ class Ui_secondWindow(object):
         self.rock.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.rock.setText("")
         icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap(r"rps_game\img\rock_j.jpg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon.addPixmap(QtGui.QPixmap(r"rps_game\img\rock_2.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.rock.setIcon(icon)
-        self.rock.setIconSize(QtCore.QSize(250, 500))
+        self.rock.setIconSize(QtCore.QSize(200, 150))
         self.rock.setCheckable(True)
         self.rock.setObjectName("rock")
 
@@ -115,9 +115,9 @@ class Ui_secondWindow(object):
         self.scissors.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.scissors.setText("")
         icon1 = QtGui.QIcon()
-        icon1.addPixmap(QtGui.QPixmap(r"rps_game\img\scissors.jpg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon1.addPixmap(QtGui.QPixmap(r"rps_game\img\scissors._2jpg.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.scissors.setIcon(icon1)
-        self.scissors.setIconSize(QtCore.QSize(300, 500))
+        self.scissors.setIconSize(QtCore.QSize(200, 180))
         self.scissors.setObjectName("scissors")
 
         # Paper
@@ -126,9 +126,9 @@ class Ui_secondWindow(object):
         self.paper.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.paper.setText("")
         icon2 = QtGui.QIcon()
-        icon2.addPixmap(QtGui.QPixmap(r"rps_game\img\paper.jpg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon2.addPixmap(QtGui.QPixmap(r"rps_game\img\paper_2.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.paper.setIcon(icon2)
-        self.paper.setIconSize(QtCore.QSize(350, 200))
+        self.paper.setIconSize(QtCore.QSize(350, 150))
         self.paper.setObjectName("paper")
 
         self.label = QtWidgets.QLabel(self.centralwidget)
