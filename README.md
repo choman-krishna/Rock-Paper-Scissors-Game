@@ -18,3 +18,8 @@ Welcome to the Rock, Paper, Scissors game! This simple yet classic game is imple
 - Random Computer Moves: The computer generates its moves randomly using the random module, creating a challenging and unpredictable opponent.
 
 - Reset Option: Reset the game at any time to start a new round.
+
+## Dependencies
+- PyQt5
+- PyQtWebEngine
+- pyqt5-tools
