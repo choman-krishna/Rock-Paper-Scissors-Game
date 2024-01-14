@@ -1,5 +1,4 @@
 # Rock-Paper-Scissors-Game
-Task-4 CODSOFT
 
 Welcome to the Rock, Paper, Scissors game! This simple yet classic game is implemented in Python using the PyQt5 module for the graphical user interface and the random module for generating computer moves.
 
